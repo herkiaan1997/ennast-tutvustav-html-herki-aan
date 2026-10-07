@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="et">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="description"
+        content="Herki Aani isiklik veebileht – tarkvaraarendus, tehnoloogia, arvutigraafika ja disain."
+    >
+
+    <title>Herki Aan | TAK26</title>
+
+    <!--
+    ============================================================
+    CREDITS / ALLIKAD
+    ============================================================
+
+    FONT:
+    Poppins – Google Fonts / Poppins Project / Indian Type Foundry
+    License: SIL Open Font License 1.1
+    https://fonts.google.com/specimen/Poppins
+    https://github.com/google/fonts/tree/main/ofl/poppins
+
+    ICONS:
+    Google Material Symbols Rounded
+    License: Apache License 2.0
+    https://developers.google.com/fonts/docs/material_symbols
+
+    VÄRVISUUNA INSPIRATSIOON:
+    IBM Carbon Design System – Blue palette, sh Blue 60 #0f62fe
+    https://www.carbondesignsystem.com/building-blocks/foundations/color/overview
+
+    RETRO CURSOR:
+    Selle projekti jaoks tehtud lihtne pikslik SVG-kursor.
+    Välist pildiressurssi ei kasutata.
+
+    DX-BALL MINI-MÄNG:
+    Selle projekti jaoks kirjutatud lihtne "brick breaker" tüüpi
+    Canvas-mäng. Tegemist ei ole originaalse DX-Ball mängu koodiga.
+    ============================================================
+    -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,300..700,0..1,-25..200"
+        rel="stylesheet"
+    >
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="scroll-progress" aria-hidden="true">
+        <span id="scroll-progress-bar"></span>
+    </div>
+
+    <a class="skip-link" href="#main-content">
+        Liigu põhisisu juurde
+    </a>
+
+    <header class="site-header" id="site-header">
+        <a class="brand" href="#avaleht" aria-label="Herki Aan – avaleht">
+            <span class="brand-square" aria-hidden="true"></span>
+            <span>HERKI AAN</span>
+        </a>
+
+        <div class="header-right">
+            <nav
+                id="main-navigation"
+                class="main-navigation"
+                aria-label="Peamenüü"
+            >
+                <a href="#minust">Minust</a>
+                <a href="#huvid">Huvid</a>
+                <a href="#opin">Õpin</a>
+                <a href="#github">Link</a>
+            </nav>
+
+            <button
+                id="theme-toggle"
+                class="icon-button theme-toggle"
+                type="button"
+                aria-label="Lülita tume režiim sisse"
+                title="Hele / tume režiim"
+            >
+                <span
+                    id="theme-icon"
+                    class="material-symbols-rounded"
+                    aria-hidden="true"
+                >dark_mode</span>
+            </button>
+
+            <button
+                id="menu-button"
+                class="icon-button menu-button"
+                type="button"
+                aria-label="Ava menüü"
+                aria-expanded="false"
+                aria-controls="main-navigation"
+            >
+                <span
+                    id="menu-icon"
+                    class="material-symbols-rounded"
+                    aria-hidden="true"
+                >menu</span>
+            </button>
+        </div>
+    </header>
+
+    <main id="main-content">
+        <!-- =====================================================
+             01 / AVALEHT
+             ===================================================== -->
+        <section id="avaleht" class="hero">
+            <div class="hero-grid" id="hero-grid" aria-hidden="true"></div>
+
+            <div class="hero-inner page-shell">
+                <div class="hero-copy reveal">
+                    <div class="section-kicker">
+                        <span class="kicker-line"></span>
+                        TAK26 / ÜLESANNE01
+                    </div>
+
+                    <h1>
+                        Tere, mina olen
+                        <strong>Herki Aan.</strong>
+                    </h1>
+
+                    <p class="hero-lead">
+                        Õpin tarkvaraarendust ja mind huvitab, kuidas
+                        tehnoloogia, loogika ning visuaalne disain saavad
+                        koos muutuda päriselt töötavaks lahenduseks.
+                    </p>
+
+                    <div class="hero-actions">
+                        <a
+                            class="button button-primary fx-button"
+                            href="#minust"
+                        >
+                            <span>Vaata edasi</span>
+                            <span
+                                class="material-symbols-rounded"
+                                aria-hidden="true"
+                            >south</span>
+                        </a>
+
+                        <a
+                            class="button button-dark fx-button"
+                            href="https://github.com/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            <span>GitHub</span>
+                            <span
+                                class="material-symbols-rounded"
+                                aria-hidden="true"
+                            >open_in_new</span>
+                        </a>
+                    </div>
+
+                    <div class="hero-tech" aria-label="Teemad, mida praegu õpin">
+                        <span>HTML</span>
+                        <span>CSS</span>
+                        <span>JavaScript</span>
+                        <span>Git</span>
+                    </div>
+                </div>
+
+                <div class="hero-visual reveal">
+                    <!--
+                    Foto ise toimib nupuna.
+                    Klõps fotol avab retro DX-Ball mini-mängu.
+                    -->
+                    <button
+                        id="game-trigger"
+                        class="photo-panel photo-trigger glow-surface"
+                        type="button"
+                        aria-label="Ava minu fotolt peidetud DX-Ball mini-mäng"
+                        title="Klõpsa fotol – siin on peidetud mäng"
+                    >
+                        <div class="photo-topline">
+                            <span>01 / PORTREE</span>
+
+                            <span class="live-label">
+                                <span class="live-dot" aria-hidden="true"></span>
+                                KLIKKA FOTOL
+                            </span>
+                        </div>
+
+                        <div class="photo-frame" id="photo-frame">
+                            <div class="photo-fallback" aria-hidden="true">
+                                <span class="material-symbols-rounded">person</span>
+                            </div>
+
+                            <img
+                                id="profile-photo"
+                                src="minufoto.png"
+                                alt="Herki Aan"
+                            >
+
+                            <div
+                                class="photo-corner corner-one"
+                                aria-hidden="true"
+                            ></div>
+
+                            <div
+                                class="photo-corner corner-two"
+                                aria-hidden="true"
+                            ></div>
+
+                            <div class="game-hint" aria-hidden="true">
+                                <span class="material-symbols-rounded">sports_esports</span>
+                                <span>PEIDETUD MÄNG</span>
+                            </div>
+                        </div>
+
+                        <div class="photo-meta">
+                            <span>HERKI AAN</span>
+                            <span>2026</span>
+                        </div>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- =====================================================
+             02 / MINUST
+             Hobid on siit teadlikult eemaldatud, sest need on
+             järgmises sektsioonis eraldi.
+             ===================================================== -->
+        <section id="minust" class="section section-about">
+            <div class="page-shell">
+                <div class="about-title-row reveal">
+                    <div class="about-index">
+                        <span class="section-index">02</span>
+
+                        <div class="section-kicker">
+                            <span class="kicker-line"></span>
+                            MINUST
+                        </div>
+                    </div>
+
+                    <div class="about-title">
+                        <h2>
+                            Mulle meeldib asjadest
+                            <span>päriselt aru saada.</span>
+                        </h2>
+                    </div>
+                </div>
+
+                <div class="about-balanced">
+                    <article class="about-story reveal">
+                        <p class="about-lead">
+                            Olen rahulik ja uudishimulik inimene, kes eelistab
+                            teha asju samm-sammult ning kontrollida, kas tulemus
+                            päriselt töötab.
+                        </p>
+
+                        <p>
+                            Tarkvaraarenduses köidab mind see, et üks idee tuleb
+                            jagada väikesteks probleemideks ja need järjest ära
+                            lahendada. Kui midagi esimesel korral ei tööta,
+                            vaatan vea üle, proovin teist lähenemist ja õpin
+                            tulemusest.
+                        </p>
+                    </article>
+
+                    <div class="trait-list reveal">
+                        <article class="trait">
+                            <div class="trait-icon">
+                                <span
+                                    class="material-symbols-rounded"
+                                    aria-hidden="true"
+                                >explore</span>
+                            </div>
+
+                            <div>
+                                <span class="trait-number">01</span>
+                                <h3>Uudishimu</h3>
+                                <p>
+                                    Tahan teada, miks mingi lahendus töötab ja
+                                    mida saaks järgmine kord paremini teha.
+                                </p>
+                            </div>
+                        </article>
+
+                        <article class="trait">
+                            <div class="trait-icon">
+                                <span
+                                    class="material-symbols-rounded"
+                                    aria-hidden="true"
+                                >conversion_path</span>
+                            </div>
+
+                            <div>
+                                <span class="trait-number">02</span>
+                                <h3>Järjepidevus</h3>
+                                <p>
+                                    Suur ülesanne muutub lihtsamaks, kui teha
+                                    üks arusaadav samm korraga.
+                                </p>
+                            </div>
+                        </article>
+
+                        <article class="trait">
+                            <div class="trait-icon">
+                                <span
+                                    class="material-symbols-rounded"
+                                    aria-hidden="true"
+                                >build</span>
+                            </div>
+
+                            <div>
+                                <span class="trait-number">03</span>
+                                <h3>Praktilisus</h3>
+                                <p>
+                                    Mulle meeldib ideid katsetada päris
+                                    projektis, mitte jätta neid ainult teooriaks.
+                                </p>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =====================================================
+             03 / HOBID JA HUVID
+             ===================================================== -->
+        <section id="huvid" class="section section-interests">
+            <div class="page-shell">
+                <div class="section-heading-wide reveal">
+                    <div>
+                        <span class="section-index">03</span>
+
+                        <div class="section-kicker">
+                            <span class="kicker-line"></span>
+                            HOBID JA HUVID
+                        </div>
+                    </div>
+
+                    <h2>
+                        Asjad, mis annavad
+                        <span>mulle uusi ideid.</span>
+                    </h2>
+                </div>
+
+                <div class="interest-grid">
+                    <article class="interest-card glow-surface reveal">
+                        <span
+                            class="material-symbols-rounded card-watermark"
+                            aria-hidden="true"
+                        >palette</span>
+
+                        <div class="card-number">01</div>
+
+                        <div class="card-icon">
+                            <span
+                                class="material-symbols-rounded"
+                                aria-hidden="true"
+                            >palette</span>
+                        </div>
+
+                        <h3>Arvutigraafika ja disain</h3>
+
+                        <p>
+                            Mulle meeldib visuaalseid ideid katsetada ja
+                            kujundada. Värvid, vormid ja paigutus võimaldavad
+                            muuta tehnilise lahenduse ka visuaalselt tugevaks.
+                        </p>
+                    </article>
+
+                    <article class="interest-card glow-surface reveal">
+                        <span
+                            class="material-symbols-rounded card-watermark"
+                            aria-hidden="true"
+                        >memory</span>
+
+                        <div class="card-number">02</div>
+
+                        <div class="card-icon">
+                            <span
+                                class="material-symbols-rounded"
+                                aria-hidden="true"
+                            >memory</span>
+                        </div>
+
+                        <h3>Tehnoloogia</h3>
+
+                        <p>
+                            Mind huvitab, kuidas arvutid, programmid ja
+                            digitaalsed tööriistad töötavad ning kuidas
+                            nende abil päris probleeme lahendada.
+                        </p>
+                    </article>
+
+                    <article class="interest-card glow-surface reveal">
+                        <span
+                            class="material-symbols-rounded card-watermark"
+                            aria-hidden="true"
+                        >strategy</span>
+
+                        <div class="card-number">03</div>
+
+                        <div class="card-icon">
+                            <span
+                                class="material-symbols-rounded"
+                                aria-hidden="true"
+                            >strategy</span>
+                        </div>
+
+                        <h3>Male ja õppimine</h3>
+
+                        <p>
+                            Male õpetab kannatlikkust, plaani loomist ja
+                            järgmise sammu ette mõtlemist. Sama mõtteviis
+                            tuleb kasuks ka programmeerimises.
+                        </p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- =====================================================
+             04 / MIDA PRAEGU ÕPIN
+             ===================================================== -->
+        <section id="opin" class="section section-learning">
+            <div class="page-shell learning-layout">
+                <div class="learning-copy reveal">
+                    <span class="section-index section-index-light">04</span>
+
+                    <div class="section-kicker section-kicker-light">
+                        <span class="kicker-line"></span>
+                        MIDA PRAEGU ÕPIN
+                    </div>
+
+                    <h2>
+                        Väikesed oskused,
+                        <span>üks toimiv tervik.</span>
+                    </h2>
+
+                    <p>
+                        See leht ongi osa õppimisest: HTML annab struktuuri,
+                        CSS kujunduse, JavaScript lisab käitumise ning Git
+                        aitab muudatusi hallata.
+                    </p>
+                </div>
+
+                <div class="learning-steps">
+                    <article class="learning-step reveal">
+                        <div class="step-top">
+                            <span>01</span>
+                            <span
+                                class="material-symbols-rounded"
+                                aria-hidden="true"
+                            >code</span>
+                        </div>
+
+                        <h3>HTML</h3>
+                        <p>Sisu ja veebilehe loogiline struktuur.</p>
+                    </article>
+
+                    <article class="learning-step reveal">
+                        <div class="step-top">
+                            <span>02</span>
+                            <span
+                                class="material-symbols-rounded"
+                                aria-hidden="true"
+                            >design_services</span>
+                        </div>
+
+                        <h3>CSS</h3>
+                        <p>Paigutus, värvid, responsiivsus ja visuaalne stiil.</p>
+                    </article>
+
+                    <article class="learning-step reveal">
+                        <div class="step-top">
+                            <span>03</span>
+                            <span
+                                class="material-symbols-rounded"
+                                aria-hidden="true"
+                            >bolt</span>
+                        </div>
+
+                        <h3>JavaScript</h3>
+                        <p>Menüü, efektid, režiimivahetus ja mini-mäng.</p>
+                    </article>
+
+                    <article class="learning-step reveal">
+                        <div class="step-top">
+                            <span>04</span>
+                            <span
+                                class="material-symbols-rounded"
+                                aria-hidden="true"
+                            >account_tree</span>
+                        </div>
+
+                        <h3>Git + GitHub</h3>
+                        <p>Versioonid, commit'id ja projekti avaldamine.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- =====================================================
+             05 / GITHUB
+             ===================================================== -->
+        <section id="github" class="section section-github">
+            <div class="page-shell">
+                <div class="github-panel glow-surface reveal">
+                    <span
+                        class="material-symbols-rounded github-watermark"
+                        aria-hidden="true"
+                    >rocket_launch</span>
+
+                    <div class="github-copy">
+                        <div class="section-kicker section-kicker-light">
+                            <span class="kicker-line"></span>
+                            JÄRGMINE SAMM
+                        </div>
+
+                        <h2>
+                            Minu teekond
+                            <span>alles algab.</span>
+                        </h2>
+
+                        <p>
+                            GitHubis saan hoida koolitöid, jälgida enda
+                            arengut ja koguda aja jooksul kokku projektid,
+                            mida päriselt näidata.
+                        </p>
+                    </div>
+
+                    <a
+                        class="button button-electric fx-button github-button"
+                        href="https://github.com/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        <span>Ava GitHub</span>
+                        <span
+                            class="material-symbols-rounded"
+                            aria-hidden="true"
+                        >north_east</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <p>2026 / HERKI AAN / TAK26</p>
+    </footer>
+
+    <!-- =========================================================
+         RETRO DX-BALL MINI-MÄNG
+         ========================================================= -->
+    <div
+        id="game-modal"
+        class="game-modal"
+        aria-hidden="true"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="game-title"
+    >
+        <div class="game-backdrop" data-close-game></div>
+
+        <div class="game-window" role="document">
+            <div class="game-titlebar">
+                <div class="game-title-group">
+                    <span class="pixel-dot" aria-hidden="true"></span>
+
+                    <div>
+                        <strong id="game-title">DX-BALL // HERKI EDITION</strong>
+                        <span>RETRO MINI GAME</span>
+                    </div>
+                </div>
+
+                <button
+                    id="game-close"
+                    class="game-close"
+                    type="button"
+                    aria-label="Sulge mäng"
+                >
+                    <span
+                        class="material-symbols-rounded"
+                        aria-hidden="true"
+                    >close</span>
+                </button>
+            </div>
+
+            <div class="game-hud">
+                <div>
+                    <span class="hud-label">SKOOR</span>
+                    <strong id="game-score">0000</strong>
+                </div>
+
+                <div>
+                    <span class="hud-label">MAKSIMUM</span>
+                    <strong id="game-max-score">4000</strong>
+                </div>
+
+                <div class="game-points-note">
+                    +100 punkti iga klotsi eest
+                </div>
+            </div>
+
+            <div class="canvas-shell">
+                <canvas
+                    id="dxball-canvas"
+                    width="800"
+                    height="500"
+                    aria-label="DX-Ball mini-mäng"
+                ></canvas>
+
+                <div id="game-message" class="game-message">
+                    <span
+                        class="material-symbols-rounded game-message-icon"
+                        aria-hidden="true"
+                    >sports_esports</span>
+
+                    <h3 id="game-message-title">DX-Ball</h3>
+
+                    <p id="game-message-text">
+                        Liiguta alust hiire, puute või nooleklahvidega.
+                    </p>
+
+                    <button
+                        id="game-start"
+                        class="retro-button"
+                        type="button"
+                    >
+                        ALUSTA MÄNGU
+                    </button>
+                </div>
+            </div>
+
+            <div class="game-controls">
+                <span>
+                    <span
+                        class="material-symbols-rounded"
+                        aria-hidden="true"
+                    >mouse</span>
+                    HIIR / PUUDE
+                </span>
+
+                <span>
+                    <span
+                        class="material-symbols-rounded"
+                        aria-hidden="true"
+                    >keyboard</span>
+                    ← →
+                </span>
+
+                <span>ESC = SULGE</span>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
